@@ -1,0 +1,451 @@
+Index: src/com/company/FlightTicketReservation/pegasusRezevasyonSistemi.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/company/FlightTicketReservation/pegasusRezevasyonSistemi.java b/src/com/company/FlightTicketReservation/pegasusRezevasyonSistemi.java
+new file mode 100644
+--- /dev/null	(date 1626421899202)
++++ b/src/com/company/FlightTicketReservation/pegasusRezevasyonSistemi.java	(date 1626421899202)
+@@ -0,0 +1,10 @@
++package com.company.FlightTicketReservation;
++public class pegasusRezevasyonSistemi extends rezervayon{
++
++    public pegasusRezevasyonSistemi (int i) {
++        setSeatCount(i);
++    }
++
++    private void setSeatCount(int i) {
++    }
++}
+Index: src/AHMED.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/AHMED.java b/src/AHMED.java
+new file mode 100644
+--- /dev/null	(date 1626422189882)
++++ b/src/AHMED.java	(date 1626422189882)
+@@ -0,0 +1,47 @@
++import com.company.FlightTicketReservation.THERevervasyonSistemi;
++import com.company.FlightTicketReservation.pegasusRezevasyonSistemi;
++
++import java.util.Scanner;
++
++public class AHMED {
++
++    public static void main(String[] args){
++
++        Scanner scanner=new Scanner(System.in);
++        System.out.println("Welcome to flight ticket reservation system");
++
++        rezervayon thy = new rezervayon(15) {
++            @Override
++            public int UcakRezervayon() {
++                return 6;
++            }
++        };
++        rezervayon pegasus= new rezervayon(10) {
++            @Override
++            public int UcakRezervayon() {
++                return 0;
++            }
++        };
++
++        String userInput="1";
++
++        while(userInput.equals("1")){
++            System.out.println("THY rezarvasyon için 1'e basınız, Pegasus rezasvanyon için 2'ye, çıkış için herhangi bir tuşa basınız");
++            String selectAction= scanner.next();
++
++            switch (selectAction){
++                case "1":
++                    thy.reservation(selectAction);
++                    break;
++                case "2":
++                    pegasus.reservation(selectAction);
++                    break;
++                default:
++                    System.out.println("Çıkış yapılıyor lütfen bekleyiniz");
++                    userInput="0";
++                    break;
++            }
++        }
++
++    }
++}
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1626362317317)
++++ b/.idea/.gitignore	(date 1626362317317)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: AHMED 11.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/AHMED 11.iml b/AHMED 11.iml
+new file mode 100644
+--- /dev/null	(date 1626362310350)
++++ b/AHMED 11.iml	(date 1626362310350)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: src/com/company/FlightTicketReservation/THERevervasyonSistemi.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/company/FlightTicketReservation/THERevervasyonSistemi.java b/src/com/company/FlightTicketReservation/THERevervasyonSistemi.java
+new file mode 100644
+--- /dev/null	(date 1626422105517)
++++ b/src/com/company/FlightTicketReservation/THERevervasyonSistemi.java	(date 1626422105517)
+@@ -0,0 +1,17 @@
++package com.company.FlightTicketReservation;
++
++
++public class THERevervasyonSistemi extends rezervayon{
++
++    public THERevervasyonSistemi(int i) {
++
++    }
++
++    public void THYReservation(int i) {
++        setSeatCount(i);
++    }
++
++    private void setSeatCount(int i) {
++    }
++
++}
+Index: src/com/company/FlightTicketReservation/rezervayon.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/com/company/FlightTicketReservation/rezervayon.java b/src/com/company/FlightTicketReservation/rezervayon.java
+new file mode 100644
+--- /dev/null	(date 1626421899215)
++++ b/src/com/company/FlightTicketReservation/rezervayon.java	(date 1626421899215)
+@@ -0,0 +1,4 @@
++package com.company.FlightTicketReservation;
++
++public class rezervayon {
++}
+Index: src/rezervayon.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/rezervayon.java b/src/rezervayon.java
+new file mode 100644
+--- /dev/null	(date 1626422105523)
++++ b/src/rezervayon.java	(date 1626422105523)
+@@ -0,0 +1,120 @@
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Scanner;
++
++public abstract class rezervayon implements UcakRezervayon {
++    int seatCount;
++
++    boolean seats[];
++
++    static Scanner scanner = new Scanner(System.in);
++
++    public rezervayon(int i) {
++    }
++
++    public void baseReservation(int seatCount) {
++        setSeatCount(seatCount);
++    }
++
++    // if seat count is smaller than 10, default seat count=10
++    public void setSeatCount(int seatCount) {
++        if (seatCount < 10) {
++            this.seatCount = 10;
++            System.out.println("Koltuk sayısı hatalı otamatik olarak 10 yapıldı.");
++        } else
++            this.seatCount = seatCount;
++
++        this.seats = new boolean[this.seatCount];
++    }
++
++    public int getSeatCount() {
++        return this.seatCount;
++    }
++
++
++    public void reservation(String selectAction) {
++        String message = selectAction.equals("1") ? "THY" : "PEGASUS";
++        System.out.println(message + " rezervasyon sistemine hoşgeldiniz");
++
++        if (!getAirplaneStatus())
++            System.out.println("Malesef tüm koltuklarımız doludur");
++
++        else {
++            System.out.println("Bussiness için 1'e Economy için 2'ye basınız, bir önceki işleme dönmek herhangi bir tuşa basınız");
++            String businessOrEconomy = scanner.next();
++
++            if (businessOrEconomy.equals("1") || businessOrEconomy.equals("2")) {
++                List<Integer> seatList = getEmptySeats(businessOrEconomy); // seçilen işleme göre koltuları getiriyor
++                selectSeat(seatList, businessOrEconomy);
++            } else
++                System.out.println("Çıkış yapılıyor lütfen bekleyiniz...");
++        }
++    }
++
++    // koltuk seçme ve bilet alma işlemleri
++    private void selectSeat(List<Integer> seatList, String businessOrEconomy) {
++        String message = businessOrEconomy.equals("1") ? "Business" : "Economy";
++        if (isEmpty(seatList)) {
++            showEmptySeat(seatList);
++            int selectedSeat = scanner.nextInt();
++            getTicket(selectedSeat);
++        } else
++            System.out.println(message + " için tüm koltuklarımız malesef doludur!!!");
++    }
++
++
++    private void getTicket(int selectedSeat) {
++        // geçerli aralıkta koltuk numarası ve seçilen koltuk boş mu kontrolü
++        if (selectedSeat > 0 && selectedSeat <= this.seatCount && !seats[selectedSeat - 1]) {
++            seats[selectedSeat - 1] = true;
++            System.out.println(selectedSeat + " nolu koltuk başarıyla rezerve edildi!");
++        } else
++            System.out.println("Yanlış koltuk numarası girildi. !!!");
++
++    }
++
++    public boolean isEmpty(List<Integer> seatList) {
++
++        return seatList.size() > 0 ? true : false;
++
++    }
++
++    public void showEmptySeat(List<Integer> emptySeats) {
++        System.out.println("Aşağıdaki bol koltuklardan birini seçiniz.");
++        for (int i : emptySeats) {
++            System.out.print((i + 1) + " ");
++        }
++        System.out.println("");
++    }
++
++
++    public boolean getAirplaneStatus() {
++        for (int i = 0; i < seats.length; i++) {
++            if (!seats[i])
++                return true;
++        }
++        return false;
++    }
++
++    public List<Integer> getEmptySeats(String businessOrEconomy) {
++        List<Integer> emptySeats = new ArrayList<>();
++        int businessOrEconomyLimit = businessOrEconomy.equals("1") ? 4 : this.seatCount - 1;
++        int startIndex = businessOrEconomy.equals("1") ? 0 : 5;
++        for (int i = startIndex; i <= businessOrEconomyLimit; i++) {
++            if (!seats[i]) {
++                emptySeats.add(i);
++            }
++        }
++        return emptySeats;
++    }
++
++//    public List<Integer> getEmptySeatsForEconomy() {
++//        List<Integer> businessStatus = new ArrayList<>();
++//        for (int i = 5 ; i < this.seatCount ;i++){
++//            if (!seats[i]){
++//                businessStatus.add(i);
++//            }
++//        }
++//        return businessStatus;
++//    }
++}
+Index: src/UcakRezervayon.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/UcakRezervayon.java b/src/UcakRezervayon.java
+new file mode 100644
+--- /dev/null	(date 1626362806194)
++++ b/src/UcakRezervayon.java	(date 1626362806194)
+@@ -0,0 +1,3 @@
++public interface UcakRezervayon {
++    public int UcakRezervayon();
++}
+diff --git a/RezevasyonSistemi b/RezevasyonSistemi
+new file mode 100644
+diff --git a/out/production/AHMED 11/UcakRezervayon.class b/out/production/AHMED 11/UcakRezervayon.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..b0b54d538931516c343d8779a0f06909874873e5
+GIT binary patch
+literal 123
+zc$_=+Z`VEs1_pBm4t54+b_RAv2ENeb#O$Eds??&g#LE0UMh0dLO;1J!uHgLAqU2P!
+z%$!t424Pe+dRd8OiHr;aAWA<cF)v-;KPf9UxrB|8fsuiU0R$LXfCe$JfLIKyK$3}p
+F4FLEH8^!<t
+
+diff --git a/out/production/AHMED 11/rezervayon.class b/out/production/AHMED 11/rezervayon.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..278f880a0fb8ede427690a4ffa75a7ed1e7362c3
+GIT binary patch
+literal 4709
+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
+De#TdL
+
+diff --git a/out/production/AHMED 11/AHMED$2.class b/out/production/AHMED 11/AHMED$2.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..33b77c820a5769ba14da04c58245c9e6266bc31d
+GIT binary patch
+literal 468
+zc${63Pfx-y7{;H%U@)gB==_5R4<5i6F<wl>m>9%BGB}8G@l-|w)v+brAkoj{#gmB#
+zKY$;~_^#|=Y|_4cp7-tVZTtQ6`32w{`xdfrOl+IjVaQ*~K*m=LMy*>PQfP%^!BBE#
+zAo}y!NT_>0^2sT?p~w9pS2EG5X~a_*G1%Q85US<#C=w)#?sccvzBxQ=QUzC&QwG*$
+zSbOmJ^PPAVYQbN^fFWC}lWh&cx$?xVOn{a?dGf>;oG#H0JU@(NFzJbS8jelu+So&t
+zq0kpm+zF%DhJhS|nKmSV`qLn%ZMwvaOOj6Q(M`w=p9ho1AXY?f)`vJihQ1^j8JYwH
+z{R{0bNGDGIsQLl+uJdN1DGyXopw(GcpokSs$iv1e<>|R7rJQ4}>2&t(AH&fMdznoc
+Z2G+IOKv}B_HnF9h3M`5iRcCZB`~vvdO%ebA
+
+diff --git a/out/production/AHMED 11/AHMED$1.class b/out/production/AHMED 11/AHMED$1.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..14e8528b0b63b0a667f301fd7a70ba6ca29d20ed
+GIT binary patch
+literal 469
+zc${63%}xR_6opS=n1OKw1jQd*xNrd`impt=m>9%BGO!S3<Ejh|REL?QGmz*rxp8IU
+z!Uyo7jCTqPW0UswoO}D-w%<RWUjWXrZzGM0g>4Hv4CbW_WPHV7)VlQ{g;qEg3<XyP
+zqCcOFgu3S=pPZ5#dfXp!B@?|ejd&^}2B#YYLbZGzMS^6`z3%kdH-~3Us^DsJ%D}n|
+z`3H|b--%bD7W^d)7}B*m+4dluD^J|Y1ZeA%Cr^CA=@RY0^TS96lb(pD;n>2igFRFk
+zvV9T7oiK_W7|1YKtA+$ne;Q=8O_!K)NwQLVbQ5yJ=fR{gh!v5W^&t+BqAy8CiY5U;
+z|3bS9(urdpRX@Pqb>2!e<$-l%X{{_Pki(iLm~bdV4@Mq^73WxMAYC-y{y~Zw;w;lE
+ah(T^rwSkgWWo%+gJ7w4uZK_V`X7~j}PfZ#C
+
+diff --git a/out/production/AHMED 11/AHMED.class b/out/production/AHMED 11/AHMED.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..fa8c081963dca8559c550fa1bf31a6e966e23ad6
+GIT binary patch
+literal 1594
+zc${ri-%}e^6#j00?XoNeLP1iku81WxffTe<fufWaK@*AwTVs8>iMM3SW<z&3jKM#^
+z$38la5A{Vejt`yiKxT^586|!3FY>AN+}&ubWs|-4o^#K4eth@r{qyOg#{e$lOAVu#
+zQ}A{l-oYgeA<WCwWfkvgcn=E-7B#3?QgB6sh9wot8fNgmiVvjmiWIJ@Sk*9%Ybvg*
+zSX1z!f^`Oc!?uO9YH`;UE<<d|v`ufBA)K1J$q-qseI*#;Inx%K^=e5t+q`6vCXuU^
+zxpk8}rj)zNh*vSmhmu=a&tJc`NQx>qZHCd*?c80y&$AY{cd`Y~G3}j2>0Wn*CCc7P
+z*)walbozo7`QXkDIUPR51%-0UT;@;v!FJs<t!yDs(tg;hG$>5Y5eLHA=Z%^zL3?6{
+zyLEEfS9gW8Vei#FhJk{|%e#5L=NF@3LcxZDj~KK<t?rb?nkh@v{L*G*EQbC~;d*%?
+zX>oOoA;~cGLKX@>){#SA8f@ygfh~sgEn$^wRbhBF<BnzSR6N5o%e%re9O24DB_D>{
+za6M5~@QIF3QJ}p2*b}qT)AqmO90McOXCOZBZLb%}#Q`T5E){E-Cr#5fW+#PF;%=v9
+zcUlJ-V=E}%H+1*8-7}n<Y>13;((JT$JFO=Vy4s3xD#W^JluXC)>Q5f<o;Mx0@VSm6
+zzMwSbbljGSrcS>7$3uhfby`-Z)u=g!b@H2cN7zP5>{_BheRe>Yiwse}5Qf3t0pBRy
+zrM@7#dk6R2e$W8Vt9-T?LbBsVf^INtS^sp&T<|I#{aEVM4cUv~n(TreaEl`JfWxP#
+zWhY6=k^xhvcX%YVA*YzQSLc@dKf9pH#VO)0VvDaS{F&6$X>G1nxLXN6Mfxr`sPq2Q
+zCwK!RbUnx?1SZ>%#<L`4X=XG>FSNm0{`M<0#(ZTAuhOUo1~`Y;Xzs)7Faj{Uk1*XR
+zz#qp56%P?^Ba%BrG!Z+3atyUN7;mF5e+;cSsI}=!NazcZWF(;<Vc>h*mzFP)W%>y5
+zg=jLm5DU#KNx}~PN<QcPT!2}6ll0EfJC%%e!K2}MrHMh3hkQ8}nO8;>iA#5J=;CDV
+z<C$di2#F@frn`%{3_eW36K578&1Y3vdDyRf4MQ|)=%?Q>2B_*`Oj5OJ;^GoXSBQmG
+zV&F%N<7d2yU+@+l;yezK!Xr%KF*5j_u2RX|GBLP{Z;1SH;*WSD`w5!+(I(V+%IzF}
+zBJU~6coIJlIz?He@f|J@BI4JQM&C0Uq6#t!LJFq+{|xX{Ugb0NXL0?ks{V!k5P`FP
+W`4@fKVziQ1{>!vZ`0L<NgXwQ4Yi?Hn
+
+diff --git a/out/production/AHMED 11/com/company/FlightTicketReservation/THERevervasyonSistemi.class b/out/production/AHMED 11/com/company/FlightTicketReservation/THERevervasyonSistemi.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..fe26ab772dbc45daefd3e2dc2323b82b925deeaf
+GIT binary patch
+literal 604
+zc$}S(PfG$p7{;Gj*VWc7%gUfm-PD7gBEs?_iGp;{Md&zgLr&>V?2dwct1bl{`T%{X
+z=$%bAi4M`i%=>4a=eIBK`^W1WfKwc}uu*c6!EO$FIqWky=Q5PK#b8%@)e(iZx)BV;
+zz6{0Hd^Q%5&&N~hl=>>*(-DuPsaH)~Ph`x{><4Prp!2}PWur5dw-fEl;9lr~h()yE
+zTB@+&cP|HGVaj-^!l8_{n8_vslXQ9vTYmR?P0!%PLJtMkZ8Z-ygF967C=eZK{(Sf=
+zt$xQB+(Q;+4@Ec(Xa63Iq5c<dBpyw^H1lRE)e(+qyEe?10i#JAx^q-rP_!s!YcF6=
+zlvv2q?Iul!EO~5DR{j!EzmPz(@UTf%T2G2<ktT7~j-FxtWEB$6H_J&`&WdH3-K<zA
+Wi5u%9nJ19s8^KZpOUKzx^gEx8S$RGH
+
+diff --git a/out/production/AHMED 11/com/company/FlightTicketReservation/pegasusRezevasyonSistemi.class b/out/production/AHMED 11/com/company/FlightTicketReservation/pegasusRezevasyonSistemi.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..a6029cf16c5a03897e108b12c6afb904afbb11e3
+GIT binary patch
+literal 529
+zc$}q?&rZTX5XQeLl}fFss9cN(Z@>Xg#)E_l2?+`DKuPaQ-M}hzNq0+vZ{<Z34?cho
+zWt>(bCleEQvokxh^ZoYU$LHHSfE(0(xH$1qLe0aehciOCs}f~<1h+A4M(q0fUJ{N*
+zDv@{Daw^k_m@YU|8|hdqB9W>*-X>i;SBB6V#d_J{u@cFqGgzqE+)h;dDD7ApnXZLZ
+zI_a$BOqk4!<&#_sv(ZVYjFn4uOCZH#NC=Fyp%k{Sv&0hoP-kf@2P)s|@;80^L99i9
+zJ)8%qqD<)i=QM=&U*sw4c+NUPsnLvZ#joljZw`nLQ)cUNG~n1_@3&q-t&0~p&qd8X
+z+bV0oDwpdktf+8Q|E}hKP|$n?IAoTS-)+mhE(ieaQ27!VutU%fg0=|$)}sFS3xZ5{
+A9{>OV
+
+diff --git a/out/production/AHMED 11/com/company/FlightTicketReservation/rezervayon.class b/out/production/AHMED 11/com/company/FlightTicketReservation/rezervayon.class
+new file mode 100644
+index 0000000000000000000000000000000000000000..5101764910aba244295653ba0f2f6ee7040f7495
+GIT binary patch
+literal 327
+zc$}3_!AiqG5Pj36iN<J(f8b3$biH{{ya+u7g|_s*S(kQex+~jlq5hR8!Gj;rj}m92
+z;Mp1GG4IXHgV}$5d;++}pg@A-949#{LUwDc33r6#{9;B(@7<FoRJF1CVY6zqpUS3X
+z<+OH6wlnEX<iBDX7G_Pjs+C&_t`}){V$_=XB20~X)?uvI+HYkr&I+$zW509uhEPo0
+z#w$HC(Wd$v4VQ8&OQh%%hW~RV4C1k9rJak%W~o)c8G8I|4B}*0#*CThIMBa*2fcCA
+XL(Z6WVuAz4@@D~uD7y2bZmawTBalx?
+
