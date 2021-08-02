@@ -1,47 +1,39 @@
-import com.company.FlightTicketReservation.THERevervasyonSistemi;
-import com.company.FlightTicketReservation.pegasusRezevasyonSistemi;
-
 import java.util.Scanner;
 
 public class AHMED {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("Welcome to flight ticket reservation system");
+        Scanner scanner = new Scanner(System.in);
+        UcakRezervasyonSistemi thy = new THYRezervasyonSistemi(10);
+        UcakRezervasyonSistemi pegasus = new PegasusRezervasyonSistemi(10);
+        int Processing;
+        while(true)
+        {
+            System.out.println("THY Rezervasyon Sistemine Hoş Geldiniz!");
+            System.out.println("****************************************");
+            System.out.println("THY'dan bilet almak icin 1'e basınız:");
+            System.out.println("Pegasus'dan bilet almak icin 2'ye basınız:");
+            System.out.println("Çıkış için 3 'e basınız:");
+            Processing=scanner.nextInt();
 
-        rezervayon thy = new rezervayon(15) {
-            @Override
-            public int UcakRezervayon() {
-                return 6;
-            }
-        };
-        rezervayon pegasus= new rezervayon(10) {
-            @Override
-            public int UcakRezervayon() {
-                return 0;
-            }
-        };
+            switch(Processing)
+            {
 
-        String userInput="1";
+                case 1:
+                    thy.RezervasyonAl();
 
-        while(userInput.equals("1")){
-            System.out.println("THY rezarvasyon için 1'e basınız, Pegasus rezasvanyon için 2'ye, çıkış için herhangi bir tuşa basınız");
-            String selectAction= scanner.next();
-
-            switch (selectAction){
-                case "1":
-                    thy.reservation(selectAction);
                     break;
-                case "2":
-                    pegasus.reservation(selectAction);
+                case 2 :
+                    pegasus.RezervasyonAl();
                     break;
-                default:
-                    System.out.println("Çıkış yapılıyor lütfen bekleyiniz");
-                    userInput="0";
+                case 3:
+                    System.out.println("Çıkış yapılıyor. Yine bekleriz :)");
+                    scanner.close();
                     break;
+
             }
+
         }
-
     }
 }
